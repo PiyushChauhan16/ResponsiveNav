@@ -1,0 +1,37 @@
+.nav-btn{
+    padding: 30px;
+    min-height: 100px;
+}
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    z-index: 10;
+}
+
+.navbar-arr{
+    position: fixed;;
+}
+
+.more-btn-div{
+    display: flex;
+    flex-direction: column;
+}
+
+.hidden {
+    display: none;
+}
+
+.dropdown-btn{
+    width: 100%;
+}
+
+.carousel-arr{
+    display: flex;
+    flex-direction: row;
+    z-index: 0;
+}
+
+.carousel-div{
+    padding-top: 10rem;
+}
