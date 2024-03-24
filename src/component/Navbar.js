@@ -18,12 +18,21 @@ const Navbar = () => {
   let iconBuilder = (arrOfIcons, limit) => {
     let res = []
     let remainder = []  
+
+    res.push (
+      <div>
+        <button className="logo">
+          <span>{"ECOMM"}</span>
+
+        </button>
+      </div>
+    )
   
     for (let i = 0; i < Math.min (limit, arrOfIcons.length); i++){
       res.push (
         <div>
-          <button className='nav-btn'>
-            <span className="material-symbols-outlined">{arrOfIcons[i]}</span>
+          <button className='nav-btn btn'>
+            <span className="nav-btn-txt">{arrOfIcons[i].toUpperCase()}</span>
           </button>
         </div>
         
@@ -32,8 +41,8 @@ const Navbar = () => {
     for (let i = Math.min (limit, arrOfIcons.length); i < arrOfIcons.length; i++){
       remainder.push (
         <div>
-          <button className='dropdown-btn'>
-            <span className="material-symbols-outlined">{arrOfIcons[i]}</span>
+          <button className='dropdown-btn btn'>
+            <span className="nav-btn-txt">{arrOfIcons[i].toUpperCase()}</span>
           </button>
         </div>
       )
@@ -45,12 +54,12 @@ const Navbar = () => {
       <div className='more-btn-div'>
         <div>
           <button
-           className='nav-btn'
+           className='nav-btn btn'
            onClick={()=>setShow(!show)}>
-            More
+            MORE
           </button>
         </div>
-        <div className = {(show === true) ? "" : "hidden"}>
+        <div className = {(show === true) ? "dropdown-div" : "dropdown-div hidden"}>
          {remainder}
         
         </div>
@@ -69,14 +78,24 @@ const Navbar = () => {
   const arrOfIcons = ["search", "home", "delete", "menu", "settings",
                       "favorite", "add", "star", "logout"]
 
-  const limit = Math.ceil (screenWidth / (110));
+  const limit = Math.ceil (screenWidth / (250));
 //   console.log ("limit", limit)
 
   return (
     <div className="navbar-arr">
         <div className="navbar">
             {iconBuilder(arrOfIcons,limit)}
+            <div className="search-div">
+              <input
+                className = "search"
+                placeholder = "🔍 Search something"
+
+              >
+
+              </input>
+            </div>
         </div>
+
     </div>
     
   );
